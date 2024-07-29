@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LayoutPages from "../layouts/LayoutPages.astro";
+import {Form} from "../components/Form"
+import PhoneIcon from "../icons/PhoneIcon.astro";
+import Email from "../icons/Email.astro";
+import LocationIcon from "../icons/LocationIcon.astro";
+---
+<Layout title="Sobre Nosotros">
+    <LayoutPages title="CONTACTO">
+		<main class="md:px-52 md:py-20 px-2 flex items-center flex-col md:flex-row justify-center">
+			<div class="md:w-1/2 mb-20 md:mb-0 text-center md:text-start"> 
+				<div>
+					<p class="text-3xl font-extrabold mb-5">Necesitas Informacion Adicional?</p>
+					<p class="text-md mb-5">Un profesional multifacético experto en múltiples campos de investigación, desarrollo y especialista en aprendizaje. Más de 15 años de experiencia.</p>
+				</div>
+				<div class="flex flex-col gap-2">
+					<div class="flex gap-5 items-center">
+						<PhoneIcon class="size-6"/>
+						<p class="text-md dark:text-gray-300 text-gray-500">+56975259414</p>
+					</div>
+					<div class="flex gap-5 items-center">
+						<Email class="size-6"/>
+						<p class="text-md dark:text-gray-300  text-gray-500">MonssterCore@hotmail.com</p>
+					</div>
+					<div class="flex gap-5 items-center">
+						<LocationIcon class="size-6"/>
+						<p class="text-md dark:text-gray-300  text-gray-500">Chile, Valparaiso</p>
+					</div>
+				</div>
+			</div>
+			<div class="md:w-1/2 flex justify-center w-full">
+				<Form />
+			</div>
+		</main>
+	</LayoutPages>
+</Layout>

@@ -1,0 +1,30 @@
+---
+const { info } = Astro.props
+---
+
+<div class="md:w-[500px] p-10 py-10 bg-gray-200 bg-opacity-10 shadow-xl flex flex-col justify-between dark:bg-black dark:bg-opacity-10">
+    <div class="mb-10">
+        <p class="text-lg font-md ">{info.parrafe}</p>
+    </div>
+    <div class="flex items-center justify-between" >
+        <div class="flex items-center gap-5">
+
+            <div class="md:w-[100px] rounded-full md:h-[100px] h-[60px] w-[60px]">
+                <img 
+                class="rounded-full object-cover md:h-[100px] w-full"
+                src={`./People/${info.img}`} />
+            </div>
+            <div class="flex gap-2 flex-col">
+                <p class="md:text-lg text-md font-extrabold">
+                    {info.name}
+                </p>
+                <p class="md:text-md text-sm ">
+                    {info.conclusion}
+                </p>
+            </div>
+        </div>
+        <p class="md:text-[80px] text-[50px] text-orange-500 font-extrabold">
+            ;;
+        </p>
+    </div>
+</div>

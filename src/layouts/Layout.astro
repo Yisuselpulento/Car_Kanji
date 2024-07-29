@@ -1,0 +1,38 @@
+---
+import '@fontsource-variable/onest';
+import NavBar from '../components/NavBar.astro';
+import { ViewTransitions } from 'astro:transitions';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/icons/CarIcon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<ViewTransitions />
+		<title>{title}</title>
+	</head>
+	<body class="scrollbar scrollbar-thumb-primary dark:bg-dark bg-light dark:text-white text-gray-800">
+		<NavBar />
+		<slot />
+		<Footer/>	
+	</body>
+</html>
+<style is:global>
+	:root {
+		color-scheme: dark light;
+	}
+	html {
+		font-family: 'Onest Variable', sans-serif;
+	}
+</style>

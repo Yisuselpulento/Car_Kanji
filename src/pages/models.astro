@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro"
+import LayoutPages from "../layouts/LayoutPages.astro"
+import { modelsCars } from "../dataModelsCar"
+import CardModelCar from "../components/CardModelCar.astro"
+import Modal from "../components/Modal.astro"
+
+---
+<Layout title="Sobre Nosotros">
+	<LayoutPages title="MODELO DE AUTOS">
+		<main class="md:px-52 md:py-20 px-2 ">
+			<div class="flex flex-wrap gap-10 justify-center">
+			{modelsCars.map( car => (
+				<CardModelCar car={car} />
+			) )}
+			</div>
+		</main>
+		<Modal id='dialog' open='Open modal'>
+			<main slot='main'>
+			  <p>Some extra content you would like here</p>
+			  <hr />
+			</main>
+			<button slot='close'>Close modal</button>
+		  </Modal>
+	
+	</LayoutPages>
+</Layout>

@@ -1,0 +1,131 @@
+---
+import CardUser from '../components/CardUser.astro';
+import { infoTestify } from '../dataUserTestify';
+import Layout from '../layouts/Layout.astro';
+import {Section2} from '../components/Section2.jsx'
+import ArrowPage from '../icons/ArrowPage.astro';
+import CheckLike from '../icons/CheckLike.astro';
+---
+
+<Layout title="Car Kanji">
+	<main class="py-20 flex flex-col items-center">
+		<section class="flex gap-5 items-center flex-col md:flex-row md:px-60 md:py-20 px-2"> 
+			<div class="flex flex-col gap-10">
+				<div class="font-extrabold flex flex-col text-center gap-3">
+					<p class="text-xl">Pide tu auto ahora</p>
+					<p class="text-3xl">SIENTETE <span class="text-primary">SEGURO</span> COMPRANDO CON NOSOTROS!</p>
+					<p class="text-md dark:text-gray-300 text-gray-500">Compra el auto de tus sueños, precios increibles, modelos unicos y de todo tipo.</p>
+				</div>
+				<div class="flex md:flex-row flex-col gap-5 ">
+					<a 
+					href="/models"
+					class="bg-primary hover:bg-hoverPrimary py-3 px-8 font-bold w-full text-white  flex gap-2 items-center justify-center">ELIGE UNO <ArrowPage class="size-6"/></a>
+					<a 
+					href="/about"
+					class="dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200 py-3 px-8 font-bold w-full bg-black text-white hover:bg-gray-800 flex gap-2 items-center justify-center">LEER MAS <CheckLike class="size-6" /></a>
+				</div>
+			</div>
+			<div>
+				<img 
+				class="md:w-[1000px] md:block hidden"
+				src="./Cars/CarIntro.webp" />
+			</div>
+		</section>
+		<div class="text-center flex flex-col gap-2 dark:bg-black bg-neutral-900  w-full py-20 mt-14 text-gray-200">
+			<p class="font-bold text-xl">Modelo de Vehiculos</p>
+			<p class="font-extrabold text-3xl">EN DESCUENTO</p>
+			<p class=" text-lg px-2">Elige una variedad de increibles vehiculos en descuento para tu siguiente viaje</p>
+		</div>
+		<Section2 client:idle />
+		<div class="text-center flex flex-col gap-2 dark:bg-black bg-neutral-900 px-2 w-full py-20 mt-16 text-gray-200">
+			<p class="font-extrabold text-3xl">Proximamente a la venta</p>
+			<p class=" font-extrabold text-2xl text-primary">+56975259414</p>
+		</div>
+		<section class="flex items-center flex-col md:px-60 px-2 mb-20 "> 
+			<div>
+				<img 
+				class="md:w-[900px] w-[600px] md:py-14 py-10"
+				src="./Cars/WallpaperCamaros.webp" />
+			</div>
+			<div class="flex gap-10 md:flex-row flex-col items-center ">
+				<div class="text-center md:w-1/2 flex flex-col gap-2 items-center">
+					<p class="md:text-xl text-lg font-bold">Porque escogernos</p>
+					<p class="md:text-3xl text-xl font-extrabold">Nuestra empresa de autos es la elección perfecta</p>
+					<p class="text-md">Una de las principales razones por las cuales deberías escogernos es nuestra dedicación a la calidad. Cada vehículo que sale de nuestras instalaciones es sometido a rigurosos controles de calidad para garantizar su funcionalidad, seguridad y durabilidad. Nuestro equipo de ingenieros altamente capacitados y experimentados trabaja incansablemente para crear automóviles que superen las expectativas de nuestros clientes en términos de rendimiento y confiabilidad.</p>
+					<a 
+					href="/about"
+					class="bg-primary hover:bg-hoverPrimary py-3 px-8 font-bold w-full md:w-[300px] text-white flex gap-3 justify-center items-center">MAS DETALLES <ArrowPage class="size-5"/></a>
+				</div>
+				<div class="md:w-1/2 flex flex-col gap-10">
+					<div class="flex gap-4">
+						<div>
+							<img 
+							class="w-[75px] bg-orange-200 rounded-full p-2"
+							src="./icons/icon4.webp"/>
+						</div>
+						<div>
+							<p class="font-bold text-xl">Mejores coches</p>
+							<p class="max-w-[470px] text-md">Cada automóvil es una obra de arte en sí mismo, cuidadosamente diseñado para captar miradas.</p>
+						</div>
+					</div>
+					<div class="flex gap-5">
+						<div>
+							<img 
+							class="w-[75px] bg-orange-200 rounded-full p-2"
+							src="./icons/icon5.webp"/>
+						</div>
+						<div>
+							<p class="font-bold text-xl">Operador activo</p>
+							<p class="max-w-[470px] text-md">Un servicio personalizado y adaptado a tus necesidades individuales. Nuestros operadores son expertos en la industria automotriz.</p>
+						</div>
+					</div>
+					<div class="flex gap-5">
+						<div>
+							<img 
+							class="w-[75px] bg-orange-200 rounded-full p-2"
+							src="./icons/icon6.webp"/>
+						</div>
+						<div>
+							<p class="font-bold text-xl">Seguridad</p>
+							<p class="max-w-[470px] text-md">Automóviles que cumplen con los más altos estándares de seguridad.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	 	<section class="mb-20 dark:bg-neutral-900 bg-gray-100 w-full py-20 md:p-10"> 
+			<div class="text-center flex flex-col gap-3 mb-7"> 
+				<p class="text-lg font-bold">Review de personas</p>
+				<h1 class="text-3xl font-extrabold">Testimonios de Clientes</h1>
+				<p class="text-xl dark:text-gray-300 text-gray-500">Ve los comentarios de nuestros mejores compradores.</p>
+			</div>
+			<div class="flex flex-wrap gap-10 justify-center">
+				{infoTestify.slice(0,2).map( info => (
+					<CardUser info={info} />
+				))}
+			</div>
+		</section> 
+		<section class="relative w-full flex flex-col justify-center items-center"> 
+			<div class="bg-[url('./Cars/corvette.webp')] mt-36  bg-no-repeat absolute object-contain w-full h-full -z-10"></div>
+			<div class="text-center flex flex-col gap-2 mb-20">
+				<p class="text-lg ">FAQ</p>
+				<p class="text-2xl font-extrabold">Preguntas mas Frecuentes</p>
+				<p class="text-md text-gray-600 dark:text-gray-400">Aqui tienes una seccion para leer las preguntas mas comunes de la gente.</p>
+			</div>
+			<div class="m-2">
+				<div class="md:w-[800px]">
+					<p class="bg-primary p-4 text-white font-bold text-md">1. ¿Cuál es la garantía ofrecida en sus vehículos y qué cubre?</p>
+					<p class="text-md dark:text-gray-300 p-6 text-black  bg-white bg-opacity-40 backdrop-blur-sm dark:bg-neutral-950 dark:bg-opacity-60">En nuestra empresa, ofrecemos una garantía integral para brindar tranquilidad a nuestros clientes. La duración y cobertura específica de la garantía pueden variar según el modelo y el país.</p>
+				</div>
+				<div class="md:w-[800px]">
+					<p class="bg-primary p-4 text-white font-bold text-md">2. ¿Tienen opciones de financiamiento disponibles para facilitar la compra de un automóvil?</p>
+					<p class="text-md dark:text-gray-300 p-6 text-black  bg-white bg-opacity-40 backdrop-blur-sm dark:bg-neutral-950 dark:bg-opacity-60">Sí, entendemos que la compra de un automóvil puede ser un compromiso financiero significativo. Por eso, ofrecemos opciones de financiamiento flexibles para facilitar la adquisición de nuestros vehículos.</p>
+				</div>
+				<div class="md:w-[800px]">
+					<p class="bg-primary p-4 text-white font-bold text-md">3. ¿Cuál es el consumo de combustible promedio de sus vehículos y qué medidas toman para mejorar la eficiencia energética?</p>
+					<p class="text-md dark:text-gray-300 p-6 text-black  bg-white bg-opacity-40 backdrop-blur-sm dark:bg-neutral-950 dark:bg-opacity-60">Nos comprometemos con la eficiencia energética y el cuidado del medio ambiente. El consumo de combustible promedio de nuestros vehículos puede variar según el modelo, la configuración y las condiciones de manejo</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
