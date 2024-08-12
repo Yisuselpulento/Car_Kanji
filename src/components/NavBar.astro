@@ -3,8 +3,42 @@ import Close from "../icons/Close.astro";
 import NavIcon from "../icons/NavIcon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
-const className = "dark:hover:text-primary hover:text-primary font-bold text-sm "
+const styles = "dark:hover:text-primary hover:text-primary font-bold text-sm "
 
+const { pathname } = Astro.url
+const paths = [
+    {   
+        id : 1,
+        to : "/",
+        text : "Inicio",
+        classname : styles
+    },
+    {   
+        id : 2,
+        to : "/about",
+        text : "Sobre Nosotros",
+        classname : styles
+    },
+    {   
+        id : 3,
+        to : "/models",
+        text : "Modelos",
+        classname : styles
+    },
+    {   
+        id : 4,
+        to : "/testify",
+        text : "Testimonios",
+        classname : styles
+    },
+    {   
+        id : 5,
+        to : "/contact",
+        text : "Contacto",
+        classname : styles
+    },
+    
+]
 
 ---
 
@@ -22,14 +56,13 @@ const className = "dark:hover:text-primary hover:text-primary font-bold text-sm 
             class="size-6"
             src="/MonssterLogo.webp " alt="logo de mi portafolio" /></a>
         <div class="flex md:justify-between md:items-center gap-5 md:flex-row flex-col items-end pb-4 md:pb-0">
-            <div class="flex md:gap-6 gap-10 md:flex-row flex-col items-end md:items-center">
-                <a class={className} href="/" rel="noopener noreferrer" >Inicio</a>
-                <a class={className}  href="/about" rel="noopener noreferrer" >Sobre Nosotros</a>
-                <a class={className}  href="/models" rel="noopener noreferrer" >Modelos</a>   
-                <a class={className}  href="/testify" rel="noopener noreferrer" >Testimonios</a>
-                <a class={className}  href="/contact" rel="noopener noreferrer">Contacto</a>
-                <ThemeToggle/>
+            {paths.map( path => (
+                 <div class="flex md:gap-6 gap-10 md:flex-row flex-col items-end md:items-center">
+                <a class={`${path.to === pathname ? 'text-primary' : ""} ${path.classname}`} href={path.to} >{path.text}</a>
+              
             </div>
+            ))}
+             <ThemeToggle/>
         </div>    
     </nav>
 </header>

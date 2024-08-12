@@ -7,10 +7,10 @@ export const Form = () => {
     Email: '',
     Info: ''
   })
-  const [alert, setAlert] = useState({ msg: '', error: false })
+  const [alert, setAlert] = useState({})
 
   const handleChange = (e) => {
-    /*  const { name, value } = e.target
+    const { name, value } = e.target
     setFormData(prevState => ({
       ...prevState,
       [name]: value
@@ -19,14 +19,12 @@ export const Form = () => {
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email) */
+    return emailRegex.test(email)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('holii')
-
-  /*   const { Nombre, Email, Info } = formData
+    const { Nombre, Email, Info } = formData
 
     // Validaciones
     if (!Nombre || !Email || !Info) {
@@ -51,7 +49,7 @@ export const Form = () => {
       Nombre: '',
       Email: '',
       Info: ''
-    }) */
+    })
   }
 
   return (
@@ -89,10 +87,10 @@ export const Form = () => {
           />
         </label>
       </div>
-      <input
-        type='submit'
+      <button
         class='py-3 px-5 w-full bg-primary hover:bg-hoverPrimary text-white cursor-pointer uppercase font-bold'
-      />
+      >Enviar
+      </button>
       {alert.msg && <Alert alert={alert} />}
     </form>
   )

@@ -1,7 +1,9 @@
-export const Alert = (alert) => {
+export const Alert = ({ alert }) => {
+  console.log(alert)
+
   return (
-    <div class={`${alert.error ? 'from-red-400 to-red-600' : 'from-green-400 to-green-700'} bg-gradient-to-br text-center p-3 uppercase text-white font-bold text-sm`}>
-      {alert.msg}hola
+    <div class={`${alert.error ? 'dark:text-red-500 text-red-700' : 'dark:bg-green-600 bg-green-500 text-white p-4 text-center'}  p-1 uppercase  text-sm`}>
+      <p>{alert.msg}</p>
     </div>
 
   )
