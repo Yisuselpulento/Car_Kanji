@@ -7,11 +7,11 @@ import CardUser from "../components/CardUser.astro"
 ---
 <Layout title="Sobre Nosotros">
 	<LayoutPages title="TESTIMONIOS">
-		<main class="md:px-52 px-2 flex  flex-col">
+		<main class="md:px-52 px-2 flex  flex-col items-center">
 			<div class="text-center flex flex-col gap-3 mb-7"> 
 				<p class="text-lg font-bold">Review de personas</p>
 				<h1 class="text-3xl font-extrabold">Testimonios de Clientes</h1>
-				<p class="text-xl dark:text-gray-300 text-gray-500">Ve los comentarios de nuestros mejores compradores.</p>
+				<p class="text-xl dark:text-gray-300 text-gray-500 md:max-w-[600px]">Descubra el impacto positivo que hemos tenido en nuestros clientes leyendo sus testimonios. Ellos han experimentado nuestro servicio y resultados, y están ansiosos por compartir sus experiencias positivas con usted.</p>
 			</div>
 			<div class="flex flex-wrap gap-10 justify-center">
 				{infoTestify.map( info => (
