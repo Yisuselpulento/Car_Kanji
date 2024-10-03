@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'preact/hooks'
 import { Cars } from '../CarsArray'
+import ModalForm from './ModalForm'
 
 export const Section2 = () => {
   const [carSelect, setCarSelect] = useState('Audi')
@@ -132,7 +133,7 @@ export const Section2 = () => {
               </tr>
             </tbody>
           </table>
-          <button class='bg-primary hover:bg-hoverPrimary py-3 px-5 w-full text-white font-bold'>Comprar</button>
+          <ModalForm />
         </div>
       </div>
     </section>

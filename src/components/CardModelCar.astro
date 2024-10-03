@@ -1,6 +1,6 @@
 ---
-import {ButtonOpenModal} from '../components/ButtonOpenModal.jsx'
 import StarIcon from '../icons/StarIcon.astro'
+import ModalForm from './ModalForm'
 const { car } = Astro.props
 ---
 
@@ -31,6 +31,6 @@ const { car } = Astro.props
             </div>
         
         </div>
-        <ButtonOpenModal />
+        <ModalForm client:visible />
     </div>
 </div>

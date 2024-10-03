@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro"
 import LayoutPages from "../layouts/LayoutPages.astro"
 import { modelsCars } from "../dataModelsCar"
 import CardModelCar from "../components/CardModelCar.astro"
-import Modal from "../components/Modal.astro"
 
 ---
 <Layout title="Sobre Nosotros">
@@ -14,14 +13,7 @@ import Modal from "../components/Modal.astro"
 				<CardModelCar car={car} />
 			) )}
 			</div>
+
 		</main>
-		<Modal id='dialog' open='Open modal'>
-			<main slot='main'>
-			  <p>Some extra content you would like here</p>
-			  <hr />
-			</main>
-			<button slot='close'>Close modal</button>
-		  </Modal>
-	
 	</LayoutPages>
 </Layout>
