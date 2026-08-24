@@ -4,33 +4,32 @@ import ModalForm from './ModalForm'
 const { car } = Astro.props
 ---
 
-<div class="w-[400px] md:w-[350px] rounded-lg shadow-xl">
-    <div>
-        <img 
-        class="h-[200px] w-[400px] md:w-[350px] object-cover rounded-t-lg"
-        src={`/Cars/${car.img}`} />
+<div class="w-[400px] md:w-[350px] rounded-lg shadow-xl overflow-hidden dark:bg-neutral-900/40 bg-white">
+    <div class="overflow-hidden">
+        <img
+        class="h-[200px] w-full object-cover hover:scale-105 transition duration-300"
+        src={`/Cars/${car.img}`}
+        alt={`Auto ${car.model}`}
+        loading="lazy" />
     </div>
-    <div class="p-7">
-        <div class="flex justify-between mb-4">
-            <div class="flex flex-col gap-4">
-                <p class="text-2xl font-extrabold text-gray-800 dark:text-white">{car.model}</p>
-                <p class="text-lg font-extrabold text-gray-600 dark:text-gray-400">Estrellas</p>
-                <p class="text-lg font-extrabold text-gray-600 dark:text-gray-400">{car.model}</p>
-                <p class="text-lg font-extrabold text-gray-600 dark:text-gray-400">Manual</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <p class="text-2xl font-extrabold text-gray-800 dark:text-white">{car.price}</p>
-                <div class="flex gap-1 p-2">
-                    {Array.from({ length: car.stars }, (_, index) => (
-                    <StarIcon key={index} class="size-3 text-yellow-500" />
-                  ))}
-                </div>
-                <p class="text-lg font-extrabold text-gray-600 dark:text-gray-400">{car.stars}/5</p>
-                <p class="text-lg font-extrabold text-gray-600 dark:text-gray-400">{car.carge}</p>
-
-            </div>
-        
+    <div class="p-6 flex flex-col gap-4">
+        <div class="flex justify-between items-start gap-2">
+            <p class="text-2xl font-extrabold text-gray-800 dark:text-white">{car.model}</p>
+            <p class="text-2xl font-extrabold text-primary whitespace-nowrap">{car.price}</p>
         </div>
-        <ModalForm client:visible />
+
+        <div class="flex items-center gap-1">
+            {Array.from({ length: car.stars }, (_, index) => (
+                <StarIcon key={index} class="size-4 text-yellow-500" />
+            ))}
+            <span class="text-sm text-gray-500 dark:text-gray-400 ml-1">{car.stars}/5</span>
+        </div>
+
+        <div class="flex justify-between text-sm font-bold text-gray-600 dark:text-gray-400 border-t dark:border-neutral-800 border-gray-200 pt-3">
+            <span>Transmisión: {car.type}</span>
+            <span>{car.carge}</span>
+        </div>
+
+        <ModalForm client:visible carModel={car.model} />
     </div>
 </div>

@@ -44,6 +44,11 @@ export const Section2 = () => {
 
   const ShowCar = carSelect + number
 
+  const formatPrice = (n) =>
+    typeof n === 'number'
+      ? new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(n)
+      : n
+
   return (
     <section class='flex w-full md:flex-row flex-col md:p-20 '>
       <div class=' p-5 flex flex-col gap-3 justify-center  md:w-2/7 w-full items-center'>
@@ -74,11 +79,11 @@ export const Section2 = () => {
         </button>
       </div>
       <div class=' p-5 flex justify-center flex-col items-center md:w-3/7 w-full'>
-        <div class='mb-20 md:h-[250px] h-[130px] md:w-[500px]'>
+        <div class='mb-20 md:h-[250px] h-[150px] w-full flex items-center justify-center'>
           <img
-            alt={`imagen de ${ShowCar}`}
-            src={`./Cars/${ShowCar}.webp`}
-            class='md:w-[700px]'
+            alt={`imagen de ${infoCar?.modelo ?? ShowCar}`}
+            src={`/Cars/${ShowCar}.webp`}
+            class='max-h-full w-auto object-contain'
           />
         </div>
         <div class='flex flex-row gap-20'>
@@ -128,7 +133,7 @@ export const Section2 = () => {
                   Precio
                 </th>
                 <td class='px-6 py-4'>
-                  {infoCar?.precio}
+                  {formatPrice(infoCar?.precio)}
                 </td>
               </tr>
             </tbody>
